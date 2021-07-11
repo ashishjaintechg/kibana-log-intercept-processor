@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+	<Properties>
+		<Property name="LOG_PATTERN" value="%d [%thread] [%-5level] %notEmpty{[testId:%X{testId}]} [%c{1.}.%M %L] - %msg%n"/>
+		<Property name="LOG_DIR" value="log"/>
+
+	</Properties>
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+           <!-- <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n" /> --> 
+           <PatternLayout pattern="[%thread][%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%c{1.}.%M %L] - %msg%n" />
+        </Console>
+       
+        <RollingFile
+    name="rollingFile"
+    fileName="${LOG_DIR}/application.log"
+    filePattern="${LOG_DIR}/application.%i.log"
+    ignoreExceptions="false">
+    <PatternLayout>
+        <Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p %m%n</Pattern>
+    </PatternLayout>
+    <Policies>
+        <SizeBasedTriggeringPolicy size="10K" />
+    </Policies>
+    <DefaultRolloverStrategy max="5" />
+</RollingFile>
+        <Async name="Async">
+        	<AppenderRef ref ="rollingFile"/>
+        </Async>
+                <RollingFile
+    name="rollingFileKibana"
+    fileName="${LOG_DIR}/kibana-application.log"
+    filePattern="${LOG_DIR}/kibana-application.%i.log"
+    ignoreExceptions="false">
+    <PatternLayout>
+        <Pattern>${LOG_PATTERN}</Pattern>
+    </PatternLayout>
+    <Policies>
+        <SizeBasedTriggeringPolicy size="10K" />
+    </Policies>
+    <DefaultRolloverStrategy max="5" />
+</RollingFile>
+        <Async name="AsyncKibana">
+        	<AppenderRef ref ="rollingFileKibana"/>
+        </Async>
+    </Appenders>
+    <Loggers>
+        <Logger name ="test.ashishjaintechg.jpa.LoggingClientHttpRequestInterceptor" level="info"  additivity="false">
+        	<AppenderRef ref="AsyncKibana"/>
+            <AppenderRef ref="console" />
+        </Logger>
+    <Logger name ="test.ashishjaintechg.jpa.RequestResponseLogFilter" level="info"  additivity="false">
+        	<AppenderRef ref="AsyncKibana"/>
+            <AppenderRef ref="console" />
+        </Logger>
+        <Root level="info" additivity="false">
+        	<AppenderRef ref="Async"/>
+            <AppenderRef ref="console" />
+        </Root>
+        </Loggers>
+</Configuration>

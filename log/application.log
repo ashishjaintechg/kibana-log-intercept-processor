@@ -1,0 +1,17 @@
+2021-07-11 22:34:35 INFO  Starting KibanaLogInterceptProcessorApplication using Java 11 on techconsultant with PID 153410 (/home/techg/Desktop/ALL/stsworkspace/kibana-log-intercept-processor/target/classes started by techg in /home/techg/Desktop/ALL/stsworkspace/kibana-log-intercept-processor)
+2021-07-11 22:34:35 INFO  No active profile set, falling back to default profiles: default
+2021-07-11 22:34:37 INFO  Tomcat initialized with port(s): 8080 (http)
+2021-07-11 22:34:37 INFO  Initializing ProtocolHandler ["http-nio-8080"]
+2021-07-11 22:34:37 INFO  Starting service [Tomcat]
+2021-07-11 22:34:37 INFO  Starting Servlet engine: [Apache Tomcat/9.0.48]
+2021-07-11 22:34:37 INFO  Initializing Spring embedded WebApplicationContext
+2021-07-11 22:34:37 INFO  Root WebApplicationContext: initialization completed in 1206 ms
+2021-07-11 22:34:37 INFO  Starting ProtocolHandler ["http-nio-8080"]
+2021-07-11 22:34:37 INFO  Tomcat started on port(s): 8080 (http) with context path ''
+2021-07-11 22:34:37 INFO  Started KibanaLogInterceptProcessorApplication in 2.216 seconds (JVM running for 3.503)
+2021-07-11 22:34:40 INFO  Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-07-11 22:34:40 INFO  Initializing Servlet 'dispatcherServlet'
+2021-07-11 22:34:40 INFO  Completed initialization in 2 ms
+2021-07-11 22:34:40 INFO  Request:-Http-Method:GET,  Address:http://localhost:8081/couponapi/coupons/SUPER10,  Payload:,  Headers{Accept=application/json, application/*+json, Content-Length=0}
+2021-07-11 22:34:40 INFO  Response:-Response Time: 29mills, Response-Code:200, Payload: {"id":101,"name":"SUPER10","discount":10.0}
+2021-07-11 22:34:40 INFO  method called Coupon(id=101, name=SUPER10, discount=10.0)
